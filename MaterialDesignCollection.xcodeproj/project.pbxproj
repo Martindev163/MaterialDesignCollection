@@ -1,0 +1,616 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		2387C7E31EBB0EEE00108317 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 2387C7E21EBB0EEE00108317 /* main.m */; };
+		2387C7E61EBB0EEE00108317 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2387C7E51EBB0EEE00108317 /* AppDelegate.m */; };
+		2387C7E91EBB0EEE00108317 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2387C7E81EBB0EEE00108317 /* ViewController.m */; };
+		2387C7EC1EBB0EEE00108317 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2387C7EA1EBB0EEE00108317 /* Main.storyboard */; };
+		2387C7EF1EBB0EEE00108317 /* MaterialDesignCollection.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2387C7ED1EBB0EEE00108317 /* MaterialDesignCollection.xcdatamodeld */; };
+		2387C7F11EBB0EEE00108317 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2387C7F01EBB0EEE00108317 /* Assets.xcassets */; };
+		2387C7F41EBB0EEE00108317 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2387C7F21EBB0EEE00108317 /* LaunchScreen.storyboard */; };
+		2387C7FF1EBB0EEE00108317 /* MaterialDesignCollectionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2387C7FE1EBB0EEE00108317 /* MaterialDesignCollectionTests.m */; };
+		2387C80A1EBB0EEE00108317 /* MaterialDesignCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2387C8091EBB0EEE00108317 /* MaterialDesignCollectionUITests.m */; };
+		2387C81A1EBB0F7400108317 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2387C8191EBB0F7400108317 /* UIView+Extension.m */; };
+		2387C81F1EBB214300108317 /* ButtonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2387C81E1EBB214300108317 /* ButtonVC.m */; };
+		23A882CD1EBC1D8200485AC9 /* easing.c in Sources */ = {isa = PBXBuildFile; fileRef = 23A882C91EBC1D8200485AC9 /* easing.c */; };
+		23A882CE1EBC1D8200485AC9 /* YXEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A882CC1EBC1D8200485AC9 /* YXEasing.m */; };
+		23A882D11EBC6E6900485AC9 /* MDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A882D01EBC6E6900485AC9 /* MDButton.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		2387C7FB1EBB0EEE00108317 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2387C7D61EBB0EED00108317 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2387C7DD1EBB0EED00108317;
+			remoteInfo = MaterialDesignCollection;
+		};
+		2387C8061EBB0EEE00108317 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 2387C7D61EBB0EED00108317 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2387C7DD1EBB0EED00108317;
+			remoteInfo = MaterialDesignCollection;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		2387C7DE1EBB0EED00108317 /* MaterialDesignCollection.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MaterialDesignCollection.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2387C7E21EBB0EEE00108317 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		2387C7E41EBB0EEE00108317 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		2387C7E51EBB0EEE00108317 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		2387C7E71EBB0EEE00108317 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		2387C7E81EBB0EEE00108317 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		2387C7EB1EBB0EEE00108317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		2387C7EE1EBB0EEE00108317 /* MaterialDesignCollection.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MaterialDesignCollection.xcdatamodel; sourceTree = "<group>"; };
+		2387C7F01EBB0EEE00108317 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		2387C7F31EBB0EEE00108317 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		2387C7F51EBB0EEE00108317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2387C7FA1EBB0EEE00108317 /* MaterialDesignCollectionTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaterialDesignCollectionTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2387C7FE1EBB0EEE00108317 /* MaterialDesignCollectionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialDesignCollectionTests.m; sourceTree = "<group>"; };
+		2387C8001EBB0EEE00108317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2387C8051EBB0EEE00108317 /* MaterialDesignCollectionUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MaterialDesignCollectionUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2387C8091EBB0EEE00108317 /* MaterialDesignCollectionUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MaterialDesignCollectionUITests.m; sourceTree = "<group>"; };
+		2387C80B1EBB0EEE00108317 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2387C8181EBB0F7400108317 /* UIView+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Extension.h"; sourceTree = "<group>"; };
+		2387C8191EBB0F7400108317 /* UIView+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Extension.m"; sourceTree = "<group>"; };
+		2387C81B1EBB0F9D00108317 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		2387C81D1EBB214300108317 /* ButtonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonVC.h; sourceTree = "<group>"; };
+		2387C81E1EBB214300108317 /* ButtonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonVC.m; sourceTree = "<group>"; };
+		23A882C91EBC1D8200485AC9 /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
+		23A882CA1EBC1D8200485AC9 /* easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easing.h; sourceTree = "<group>"; };
+		23A882CB1EBC1D8200485AC9 /* YXEasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXEasing.h; sourceTree = "<group>"; };
+		23A882CC1EBC1D8200485AC9 /* YXEasing.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXEasing.m; sourceTree = "<group>"; };
+		23A882CF1EBC6E6900485AC9 /* MDButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDButton.h; sourceTree = "<group>"; };
+		23A882D01EBC6E6900485AC9 /* MDButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDButton.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		2387C7DB1EBB0EED00108317 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2387C7F71EBB0EEE00108317 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2387C8021EBB0EEE00108317 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		2387C7D51EBB0EED00108317 = {
+			isa = PBXGroup;
+			children = (
+				2387C7E01EBB0EEE00108317 /* MaterialDesignCollection */,
+				2387C7FD1EBB0EEE00108317 /* MaterialDesignCollectionTests */,
+				2387C8081EBB0EEE00108317 /* MaterialDesignCollectionUITests */,
+				2387C7DF1EBB0EEE00108317 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		2387C7DF1EBB0EEE00108317 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				2387C7DE1EBB0EED00108317 /* MaterialDesignCollection.app */,
+				2387C7FA1EBB0EEE00108317 /* MaterialDesignCollectionTests.xctest */,
+				2387C8051EBB0EEE00108317 /* MaterialDesignCollectionUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		2387C7E01EBB0EEE00108317 /* MaterialDesignCollection */ = {
+			isa = PBXGroup;
+			children = (
+				23A882C71EBC1D3D00485AC9 /* help */,
+				2387C8171EBB0EF900108317 /* controls */,
+				2387C81C1EBB211A00108317 /* controller */,
+				2387C7E41EBB0EEE00108317 /* AppDelegate.h */,
+				2387C7E51EBB0EEE00108317 /* AppDelegate.m */,
+				2387C7E71EBB0EEE00108317 /* ViewController.h */,
+				2387C7E81EBB0EEE00108317 /* ViewController.m */,
+				2387C7EA1EBB0EEE00108317 /* Main.storyboard */,
+				2387C7F01EBB0EEE00108317 /* Assets.xcassets */,
+				2387C7F21EBB0EEE00108317 /* LaunchScreen.storyboard */,
+				2387C7F51EBB0EEE00108317 /* Info.plist */,
+				2387C7ED1EBB0EEE00108317 /* MaterialDesignCollection.xcdatamodeld */,
+				2387C7E11EBB0EEE00108317 /* Supporting Files */,
+			);
+			path = MaterialDesignCollection;
+			sourceTree = "<group>";
+		};
+		2387C7E11EBB0EEE00108317 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				2387C7E21EBB0EEE00108317 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		2387C7FD1EBB0EEE00108317 /* MaterialDesignCollectionTests */ = {
+			isa = PBXGroup;
+			children = (
+				2387C7FE1EBB0EEE00108317 /* MaterialDesignCollectionTests.m */,
+				2387C8001EBB0EEE00108317 /* Info.plist */,
+			);
+			path = MaterialDesignCollectionTests;
+			sourceTree = "<group>";
+		};
+		2387C8081EBB0EEE00108317 /* MaterialDesignCollectionUITests */ = {
+			isa = PBXGroup;
+			children = (
+				2387C8091EBB0EEE00108317 /* MaterialDesignCollectionUITests.m */,
+				2387C80B1EBB0EEE00108317 /* Info.plist */,
+			);
+			path = MaterialDesignCollectionUITests;
+			sourceTree = "<group>";
+		};
+		2387C8171EBB0EF900108317 /* controls */ = {
+			isa = PBXGroup;
+			children = (
+				23A882CF1EBC6E6900485AC9 /* MDButton.h */,
+				23A882D01EBC6E6900485AC9 /* MDButton.m */,
+			);
+			name = controls;
+			sourceTree = "<group>";
+		};
+		2387C81C1EBB211A00108317 /* controller */ = {
+			isa = PBXGroup;
+			children = (
+				2387C81D1EBB214300108317 /* ButtonVC.h */,
+				2387C81E1EBB214300108317 /* ButtonVC.m */,
+			);
+			name = controller;
+			sourceTree = "<group>";
+		};
+		23A882C71EBC1D3D00485AC9 /* help */ = {
+			isa = PBXGroup;
+			children = (
+				23A882C81EBC1D7500485AC9 /* 缓动函数 */,
+				2387C81B1EBB0F9D00108317 /* Defines.h */,
+				2387C8181EBB0F7400108317 /* UIView+Extension.h */,
+				2387C8191EBB0F7400108317 /* UIView+Extension.m */,
+			);
+			name = help;
+			sourceTree = "<group>";
+		};
+		23A882C81EBC1D7500485AC9 /* 缓动函数 */ = {
+			isa = PBXGroup;
+			children = (
+				23A882C91EBC1D8200485AC9 /* easing.c */,
+				23A882CA1EBC1D8200485AC9 /* easing.h */,
+				23A882CB1EBC1D8200485AC9 /* YXEasing.h */,
+				23A882CC1EBC1D8200485AC9 /* YXEasing.m */,
+			);
+			name = "缓动函数";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		2387C7DD1EBB0EED00108317 /* MaterialDesignCollection */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2387C80E1EBB0EEE00108317 /* Build configuration list for PBXNativeTarget "MaterialDesignCollection" */;
+			buildPhases = (
+				2387C7DA1EBB0EED00108317 /* Sources */,
+				2387C7DB1EBB0EED00108317 /* Frameworks */,
+				2387C7DC1EBB0EED00108317 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MaterialDesignCollection;
+			productName = MaterialDesignCollection;
+			productReference = 2387C7DE1EBB0EED00108317 /* MaterialDesignCollection.app */;
+			productType = "com.apple.product-type.application";
+		};
+		2387C7F91EBB0EEE00108317 /* MaterialDesignCollectionTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2387C8111EBB0EEE00108317 /* Build configuration list for PBXNativeTarget "MaterialDesignCollectionTests" */;
+			buildPhases = (
+				2387C7F61EBB0EEE00108317 /* Sources */,
+				2387C7F71EBB0EEE00108317 /* Frameworks */,
+				2387C7F81EBB0EEE00108317 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2387C7FC1EBB0EEE00108317 /* PBXTargetDependency */,
+			);
+			name = MaterialDesignCollectionTests;
+			productName = MaterialDesignCollectionTests;
+			productReference = 2387C7FA1EBB0EEE00108317 /* MaterialDesignCollectionTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2387C8041EBB0EEE00108317 /* MaterialDesignCollectionUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2387C8141EBB0EEE00108317 /* Build configuration list for PBXNativeTarget "MaterialDesignCollectionUITests" */;
+			buildPhases = (
+				2387C8011EBB0EEE00108317 /* Sources */,
+				2387C8021EBB0EEE00108317 /* Frameworks */,
+				2387C8031EBB0EEE00108317 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2387C8071EBB0EEE00108317 /* PBXTargetDependency */,
+			);
+			name = MaterialDesignCollectionUITests;
+			productName = MaterialDesignCollectionUITests;
+			productReference = 2387C8051EBB0EEE00108317 /* MaterialDesignCollectionUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		2387C7D61EBB0EED00108317 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = junanxin;
+				TargetAttributes = {
+					2387C7DD1EBB0EED00108317 = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+					};
+					2387C7F91EBB0EEE00108317 = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2387C7DD1EBB0EED00108317;
+					};
+					2387C8041EBB0EEE00108317 = {
+						CreatedOnToolsVersion = 8.3.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 2387C7DD1EBB0EED00108317;
+					};
+				};
+			};
+			buildConfigurationList = 2387C7D91EBB0EED00108317 /* Build configuration list for PBXProject "MaterialDesignCollection" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 2387C7D51EBB0EED00108317;
+			productRefGroup = 2387C7DF1EBB0EEE00108317 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				2387C7DD1EBB0EED00108317 /* MaterialDesignCollection */,
+				2387C7F91EBB0EEE00108317 /* MaterialDesignCollectionTests */,
+				2387C8041EBB0EEE00108317 /* MaterialDesignCollectionUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		2387C7DC1EBB0EED00108317 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2387C7F41EBB0EEE00108317 /* LaunchScreen.storyboard in Resources */,
+				2387C7F11EBB0EEE00108317 /* Assets.xcassets in Resources */,
+				2387C7EC1EBB0EEE00108317 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2387C7F81EBB0EEE00108317 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2387C8031EBB0EEE00108317 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		2387C7DA1EBB0EED00108317 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				23A882CD1EBC1D8200485AC9 /* easing.c in Sources */,
+				2387C81A1EBB0F7400108317 /* UIView+Extension.m in Sources */,
+				23A882D11EBC6E6900485AC9 /* MDButton.m in Sources */,
+				2387C7E91EBB0EEE00108317 /* ViewController.m in Sources */,
+				23A882CE1EBC1D8200485AC9 /* YXEasing.m in Sources */,
+				2387C81F1EBB214300108317 /* ButtonVC.m in Sources */,
+				2387C7E61EBB0EEE00108317 /* AppDelegate.m in Sources */,
+				2387C7EF1EBB0EEE00108317 /* MaterialDesignCollection.xcdatamodeld in Sources */,
+				2387C7E31EBB0EEE00108317 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2387C7F61EBB0EEE00108317 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2387C7FF1EBB0EEE00108317 /* MaterialDesignCollectionTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2387C8011EBB0EEE00108317 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2387C80A1EBB0EEE00108317 /* MaterialDesignCollectionUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		2387C7FC1EBB0EEE00108317 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2387C7DD1EBB0EED00108317 /* MaterialDesignCollection */;
+			targetProxy = 2387C7FB1EBB0EEE00108317 /* PBXContainerItemProxy */;
+		};
+		2387C8071EBB0EEE00108317 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2387C7DD1EBB0EED00108317 /* MaterialDesignCollection */;
+			targetProxy = 2387C8061EBB0EEE00108317 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		2387C7EA1EBB0EEE00108317 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2387C7EB1EBB0EEE00108317 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		2387C7F21EBB0EEE00108317 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				2387C7F31EBB0EEE00108317 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		2387C80C1EBB0EEE00108317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2387C80D1EBB0EEE00108317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		2387C80F1EBB0EEE00108317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MaterialDesignCollection/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.junanxin.MaterialDesignCollection;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		2387C8101EBB0EEE00108317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = MaterialDesignCollection/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.junanxin.MaterialDesignCollection;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2387C8121EBB0EEE00108317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MaterialDesignCollectionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.junanxin.MaterialDesignCollectionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MaterialDesignCollection.app/MaterialDesignCollection";
+			};
+			name = Debug;
+		};
+		2387C8131EBB0EEE00108317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = MaterialDesignCollectionTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.junanxin.MaterialDesignCollectionTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/MaterialDesignCollection.app/MaterialDesignCollection";
+			};
+			name = Release;
+		};
+		2387C8151EBB0EEE00108317 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MaterialDesignCollectionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.junanxin.MaterialDesignCollectionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MaterialDesignCollection;
+			};
+			name = Debug;
+		};
+		2387C8161EBB0EEE00108317 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = MaterialDesignCollectionUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.junanxin.MaterialDesignCollectionUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = MaterialDesignCollection;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		2387C7D91EBB0EED00108317 /* Build configuration list for PBXProject "MaterialDesignCollection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2387C80C1EBB0EEE00108317 /* Debug */,
+				2387C80D1EBB0EEE00108317 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2387C80E1EBB0EEE00108317 /* Build configuration list for PBXNativeTarget "MaterialDesignCollection" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2387C80F1EBB0EEE00108317 /* Debug */,
+				2387C8101EBB0EEE00108317 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2387C8111EBB0EEE00108317 /* Build configuration list for PBXNativeTarget "MaterialDesignCollectionTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2387C8121EBB0EEE00108317 /* Debug */,
+				2387C8131EBB0EEE00108317 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2387C8141EBB0EEE00108317 /* Build configuration list for PBXNativeTarget "MaterialDesignCollectionUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2387C8151EBB0EEE00108317 /* Debug */,
+				2387C8161EBB0EEE00108317 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		2387C7ED1EBB0EEE00108317 /* MaterialDesignCollection.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				2387C7EE1EBB0EEE00108317 /* MaterialDesignCollection.xcdatamodel */,
+			);
+			currentVersion = 2387C7EE1EBB0EEE00108317 /* MaterialDesignCollection.xcdatamodel */;
+			path = MaterialDesignCollection.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = 2387C7D61EBB0EED00108317 /* Project object */;
+}

@@ -27,9 +27,20 @@
 
 //添加浮动响应按钮
 -(void)loadFloatingActionButton{
-    _FABtn = [[MDButton alloc] initWithFrame:CGRectMake(100, 80, 80, 80) WithStyle:RaisedButton];
+    
+    _FABtn = [[MDButton alloc] initWithFrame:CGRectMake(100, 80, 80, 80) WithStyle:FloatingActionButton];
     _FABtn.backgroundColor = [UIColor redColor];
     [self.view addSubview:_FABtn];
+    
+    
+    _raisedBtn = [[MDButton alloc] initWithFrame:CGRectMake(100, 250, 80, 80) WithStyle:RaisedButton];
+    _raisedBtn.backgroundColor = [UIColor redColor];
+    [self.view addSubview:_raisedBtn];
+    
+    _flatBtn = [[MDButton alloc] initWithFrame:CGRectMake(100, 400, 80, 44) WithStyle:FlatButton];
+    [_flatBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_flatBtn setTitle:@"哈哈哈哈" forState:UIControlStateNormal];
+    [self.view addSubview:_flatBtn];
 }
 
 @end

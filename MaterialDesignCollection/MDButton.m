@@ -28,12 +28,13 @@
     if (self) {
         _myStyle = Style;
         _ripplrLayer = [CAShapeLayer layer];
-        [self loadShadow];
+        
         
         if (Style == FloatingActionButton) {
-            
+            [self loadShadow];
             self.layer.cornerRadius = self.frame.size.width/2.f;
         }else if (Style == RaisedButton){
+            [self loadShadow];
             self.layer.cornerRadius = 4;
             _ripplrLayer.cornerRadius = 4;
         }
@@ -78,29 +79,11 @@
     CGPoint location = [touch locationInView:self];
     NSLog(@"%@",NSStringFromCGPoint(location));
     
-    UIBezierPath *fromPaht = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(location.x, location.y, 0, 0)];
-    
-    CGFloat radius ;
-    
-    if (self.width == self.height) {
+    if (_myStyle != FloatingActionButton) {
+        CABasicAnimation *animation = [self loadRipplrAnimationWithLocation:location duration:.5f];
         
-        radius = sqrt((self.width*self.width*2))/2.f;
-        
-    }else {
-        radius = sqrt((self.width*self.height + self.height*self.height))/2.f;
+        [_ripplrLayer addAnimation:animation forKey:nil];
     }
-    
-    CGRect newRect = CGRectInset(CGRectMake(self.width/2.f, self.height/2.f, 0, 0), -radius, -radius);
-    
-    UIBezierPath *toPath = [UIBezierPath bezierPathWithOvalInRect:newRect];;
-    
-    CABasicAnimation *animation = [CABasicAnimation animation];
-    animation.keyPath = @"path";
-    animation.fromValue = (__bridge id _Nullable)(fromPaht.CGPath);
-    animation.toValue = (__bridge id _Nullable)(toPath.CGPath);
-    animation.duration = .5f;
-    _ripplrLayer.path = toPath.CGPath;
-    [_ripplrLayer addAnimation:animation forKey:nil];
 }
 
 -(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -112,4 +95,42 @@
 -(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {}
 
+
+//设置水墨动画
+-(CABasicAnimation *)loadRipplrAnimationWithLocation:(CGPoint)location duration:(CGFloat)duration{
+    
+    if (_myStyle == FlatButton) {
+        self.backgroundColor = [UIColor colorWithHue:0 saturation:0 brightness:0 alpha:0.2];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            self.backgroundColor = [UIColor clearColor];
+        });
+    }
+    
+    UIBezierPath *fromPaht = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(location.x, location.y, 0, 0)];
+    
+    CGFloat radius ;
+    
+    //计算最大半径
+    if (self.width == self.height) {
+        
+        radius = sqrt((self.width*self.width*2))/2.f;
+        
+    }else {
+        radius = sqrt((self.width*self.width + self.height*self.height))/2.f;
+    }
+    
+    CGRect newRect = CGRectInset(CGRectMake(self.width/2.f, self.height/2.f, 0, 0), -radius, -radius);
+    
+    UIBezierPath *toPath = [UIBezierPath bezierPathWithOvalInRect:newRect];;
+    
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.keyPath = @"path";
+    animation.fromValue = (__bridge id _Nullable)(fromPaht.CGPath);
+    animation.toValue = (__bridge id _Nullable)(toPath.CGPath);
+    animation.duration = duration;
+    
+    
+    
+    return animation;
+}
 @end

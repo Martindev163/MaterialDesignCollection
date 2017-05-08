@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "BE42F1A652A985C5DDC98BE27C429E06B6A44428",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "AF47D4A3F34FEF4628F2EF7AEC8326E949F17015" : 9223372036854775807,
+    "BE42F1A652A985C5DDC98BE27C429E06B6A44428" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "2BEFB962-9BAA-49C4-B516-B0832E88C9BE",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "AF47D4A3F34FEF4628F2EF7AEC8326E949F17015" : "",
+    "BE42F1A652A985C5DDC98BE27C429E06B6A44428" : "MaterialDesignCollection\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MaterialDesignCollection",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MaterialDesignCollection.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/haozheMa\/3DTouch.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "AF47D4A3F34FEF4628F2EF7AEC8326E949F17015"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/haozheMa\/MaterialDesignCollection.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "BE42F1A652A985C5DDC98BE27C429E06B6A44428"
+    }
+  ]
+}

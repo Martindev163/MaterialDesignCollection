@@ -11,7 +11,7 @@
 
 #define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))    // 弧度转角度
 
-@interface MDButton ()
+@interface MDButton ()<UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) CAShapeLayer *ripplrLayer;
 
@@ -33,10 +33,16 @@
         if (Style == FloatingActionButton) {
             [self loadShadow];
             self.layer.cornerRadius = self.frame.size.width/2.f;
+            //添加拖动手势
+            UIPanGestureRecognizer *panG = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(moveButton:)];
+            panG.delegate = self;
+            [self addGestureRecognizer:panG];
         }else if (Style == RaisedButton){
             [self loadShadow];
             self.layer.cornerRadius = 4;
             _ripplrLayer.cornerRadius = 4;
+        }else if (Style == FlatButton){
+            
         }
         
         [self addRipplrLayer];
@@ -121,7 +127,7 @@
     
     CGRect newRect = CGRectInset(CGRectMake(self.width/2.f, self.height/2.f, 0, 0), -radius, -radius);
     
-    UIBezierPath *toPath = [UIBezierPath bezierPathWithOvalInRect:newRect];;
+    UIBezierPath *toPath = [UIBezierPath bezierPathWithOvalInRect:newRect];
     
     CABasicAnimation *animation = [CABasicAnimation animation];
     animation.keyPath = @"path";
@@ -132,5 +138,12 @@
     
     
     return animation;
+}
+
+-(void)moveButton:(UIPanGestureRecognizer *)panG{
+    CGPoint translation = [panG translationInView:[UIApplication sharedApplication].keyWindow];
+    CGPoint center = self.center;
+    self.center = CGPointMake(center.x + translation.x, center.y + translation.y);
+    [panG setTranslation:CGPointMake(0, 0) inView:[UIApplication sharedApplication].keyWindow];
 }
 @end

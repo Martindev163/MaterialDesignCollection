@@ -14,7 +14,7 @@
 #import "Defines.h"
 #import "POP.h"
 
-@interface MDDialogs ()<CAAnimationDelegate>
+@interface MDDialogs ()<CAAnimationDelegate,POPAnimationDelegate>
 
 @property (nonatomic, strong) UIView *maskView;
 
@@ -115,13 +115,13 @@
     _maxHeight += 16;
     
     //背景
-    _dialogsView = [[UIView alloc] initWithFrame:CGRectMake(self.width/2.f - 140, self.height/2.f - _maxHeight/2, 280, _maxHeight)];
+    _dialogsView = [[UIView alloc] initWithFrame:CGRectMake(self.width/2.f - 140,  -_maxHeight/2, 280, _maxHeight)];
     _dialogsView.backgroundColor = [UIColor whiteColor];
     _dialogsView.layer.shadowColor = [UIColor blackColor].CGColor;
     _dialogsView.layer.shadowOffset = CGSizeMake(0, 5);
     _dialogsView.layer.shadowOpacity = .5f;
     _dialogsView.layer.shadowRadius = 5;
-    
+    _dialogsView.hidden = YES;
     [_maskView addSubview:_dialogsView];
     
     //标题
@@ -189,15 +189,15 @@
 -(void)addShowDialogsAnimation{
     //向下掉落的动画
     CGRect tempRect = _dialogsView.frame;
-    tempRect.origin.y = -_maxHeight;
     POPSpringAnimation *popAnimation = [POPSpringAnimation animationWithPropertyNamed:kPOPViewFrame];
     popAnimation.fromValue = [NSValue valueWithCGRect:tempRect];
-    
-    
-    popAnimation.toValue = [NSValue valueWithCGRect:_dialogsView.frame];
+    tempRect.origin.y += SCREEM_HEIGHT/2.f;
+    popAnimation.toValue = [NSValue valueWithCGRect:tempRect];
     popAnimation.springBounciness = 13;
     popAnimation.springSpeed = 10;
     popAnimation.beginTime = CACurrentMediaTime();
+    popAnimation.delegate = self;
+    _dialogsView.frame = tempRect;
     [_dialogsView pop_addAnimation:popAnimation forKey:nil];
 }
 
@@ -219,4 +219,8 @@
     _maskView = nil;
 }
 
+-(void)pop_animationDidStart:(POPAnimation *)anim
+{
+    _dialogsView.hidden = NO;
+}
 @end

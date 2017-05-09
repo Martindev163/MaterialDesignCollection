@@ -13,7 +13,9 @@ typedef enum : NSUInteger {
     FlatButton,//扁平按钮
 } MDButtonStyle;
 
-@interface MDButton : UIButton
+@interface MDButton : UIView
+
+@property (nonatomic, strong) UIButton *button;
 
 -(instancetype)initWithFrame:(CGRect)frame WithStyle:(MDButtonStyle)Style;
 

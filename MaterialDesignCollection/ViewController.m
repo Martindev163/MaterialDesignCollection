@@ -10,6 +10,7 @@
 #import "UIView+Extension.h"
 #import "Defines.h"
 #import "ButtonVC.h"
+#import "DialogsVC.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -25,7 +26,7 @@
 {
     [super viewDidLoad];
     
-    _items = [[NSArray alloc] initWithObjects:@"按钮", nil];
+    _items = [[NSArray alloc] initWithObjects:@"按钮",@"提示框", nil];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEM_WIDTH, SCREEM_HEIGHT-64)];
     _tableView.delegate = self;
@@ -68,6 +69,9 @@
     
     if (indexPath.row == 0) {
         ButtonVC *vc = [[ButtonVC alloc] init];
+        [self.navigationController pushViewController:vc animated:YES];
+    }else if (indexPath.row == 1){
+        DialogsVC *vc = [[DialogsVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

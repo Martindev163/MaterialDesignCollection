@@ -38,8 +38,8 @@
     [self.view addSubview:_raisedBtn];
     
     _flatBtn = [[MDButton alloc] initWithFrame:CGRectMake(100, 400, 80, 44) WithStyle:FlatButton];
-    [_flatBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-    [_flatBtn setTitle:@"哈哈哈哈" forState:UIControlStateNormal];
+    [_flatBtn.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [_flatBtn.button setTitle:@"哈哈哈哈" forState:UIControlStateNormal];
     [self.view addSubview:_flatBtn];
 }
 

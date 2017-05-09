@@ -11,11 +11,13 @@
 
 #define RADIANS_TO_DEGREES(radians) ((radians) * (180.0 / M_PI))    // 弧度转角度
 
-@interface MDButton ()<UIGestureRecognizerDelegate>
+@interface MDButton ()<UIGestureRecognizerDelegate,CAAnimationDelegate>
 
 @property (nonatomic, strong) CAShapeLayer *ripplrLayer;
 
 @property (nonatomic, assign) MDButtonStyle myStyle;
+
+
 
 @end
 
@@ -46,6 +48,11 @@
         }
         
         [self addRipplrLayer];
+        
+        //添加按钮
+        _button = [[UIButton alloc] initWithFrame:self.bounds];
+        [_button addTarget:self action:@selector(buttonClick) forControlEvents:UIControlEventTouchUpInside];
+        [self addSubview:_button];
     }
     
     return self;
@@ -79,27 +86,27 @@
 }
 
 
--(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{
-    UITouch *touch = touches.anyObject;
-    CGPoint location = [touch locationInView:self];
-    NSLog(@"%@",NSStringFromCGPoint(location));
-    
-    if (_myStyle != FloatingActionButton) {
-        CABasicAnimation *animation = [self loadRipplrAnimationWithLocation:location duration:.5f];
-        
-        [_ripplrLayer addAnimation:animation forKey:nil];
-    }
-}
+//-(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{
+//    UITouch *touch = touches.anyObject;
+//    CGPoint location = [touch locationInView:self];
+//    NSLog(@"%@",NSStringFromCGPoint(location));
+//    
+//    if (_myStyle != FloatingActionButton) {
+//        CABasicAnimation *animation = [self loadRipplrAnimationWithLocation:location duration:.5f];
+//        
+//        [_ripplrLayer addAnimation:animation forKey:nil];
+//    }
+//}
 
--(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{}
-
--(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{}
-
--(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
-{}
+//-(void)touchesEnded:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{}
+//
+//-(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{}
+//
+//-(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+//{}
 
 
 //设置水墨动画
@@ -107,9 +114,6 @@
     
     if (_myStyle == FlatButton) {
         self.backgroundColor = [UIColor colorWithHue:0 saturation:0 brightness:0 alpha:0.2];
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-            self.backgroundColor = [UIColor clearColor];
-        });
     }
     
     UIBezierPath *fromPaht = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(location.x, location.y, 0, 0)];
@@ -130,14 +134,20 @@
     UIBezierPath *toPath = [UIBezierPath bezierPathWithOvalInRect:newRect];
     
     CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.delegate = self;
     animation.keyPath = @"path";
     animation.fromValue = (__bridge id _Nullable)(fromPaht.CGPath);
     animation.toValue = (__bridge id _Nullable)(toPath.CGPath);
     animation.duration = duration;
     
-    
-    
     return animation;
+}
+
+-(void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag{
+    if (_myStyle == FlatButton) {
+        self.backgroundColor = [UIColor clearColor];
+    }
+    
 }
 
 -(void)moveButton:(UIPanGestureRecognizer *)panG{
@@ -145,5 +155,24 @@
     CGPoint center = self.center;
     self.center = CGPointMake(center.x + translation.x, center.y + translation.y);
     [panG setTranslation:CGPointMake(0, 0) inView:[UIApplication sharedApplication].keyWindow];
+}
+
+///暂时不用这种方法，让点解的波纹从中间往外扩散而不是从点击的地方，以后再看有什么好方法没有了
+-(void)tapAction:(UIGestureRecognizer *)tapG{
+    CGPoint point = [tapG locationInView:self];
+    
+    NSLog(@"%@",[NSValue valueWithCGPoint:point]);
+    if (_myStyle != FloatingActionButton) {
+        CABasicAnimation *animation = [self loadRipplrAnimationWithLocation:point duration:.5f];
+        
+        [_ripplrLayer addAnimation:animation forKey:nil];
+    }
+}
+
+-(void)buttonClick{
+    if (_myStyle != FloatingActionButton) {
+        CABasicAnimation *animation = [self loadRipplrAnimationWithLocation:CGPointMake(self.width/2.f, self.height/2.f) duration:.5f];
+        [_ripplrLayer addAnimation:animation forKey:nil];
+    }
 }
 @end

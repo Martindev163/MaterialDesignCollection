@@ -14,6 +14,9 @@
 #import "Defines.h"
 #import "POP.h"
 
+#define DialogsTitleFont 22
+#define DialogsBodyFont  18
+
 @interface MDDialogs ()<CAAnimationDelegate,POPAnimationDelegate>
 
 @property (nonatomic, strong) UIView *maskView;
@@ -77,7 +80,7 @@
 //添加蒙版
 -(void)showMDDialogs{
     _maskView = [[UIView alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
-    _maskView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0];
+    _maskView.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.3];
     UIWindow *window = [UIApplication sharedApplication].keyWindow;
     [window addSubview:_maskView];
     
@@ -99,7 +102,7 @@
     }
     
     //body的高度
-    CGFloat bodyHeight = [_bodyStr maxTextSizeWithTextWidth:232 textFont:20].height;
+    CGFloat bodyHeight = [_bodyStr maxTextSizeWithTextWidth:232 textFont:DialogsBodyFont].height;
     
     _maxHeight += bodyHeight;
     
@@ -128,7 +131,7 @@
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(24, 24, 232, 24)];
     _titleLabel.textColor = [UIColor blackColor];
     _titleLabel.text = _dialogsTitle;
-    [_titleLabel setFont:[UIFont systemFontOfSize:24]];
+    [_titleLabel setFont:[UIFont systemFontOfSize:DialogsTitleFont]];
     [_dialogsView addSubview:_titleLabel];
     
     //文本内容
@@ -136,49 +139,43 @@
     _bodyLabel.textColor = [UIColor blackColor];
     _bodyLabel.text = _bodyStr;
     _bodyLabel.numberOfLines = 0;
-    [_bodyLabel setFont:[UIFont systemFontOfSize:20]];
+    [_bodyLabel setFont:[UIFont systemFontOfSize:DialogsBodyFont]];
     [_dialogsView addSubview:_bodyLabel];
     
     //按钮
     if (_dialogsStyle == MDDialogsDefault) {
         
         _confirmButton = [[MDButton alloc] initWithFrame:CGRectMake(_dialogsView.width - 16 - 72, _bodyLabel.bottom + 24, 72, 36) WithStyle:FlatButton];
-        [_confirmButton.button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [_confirmButton.button setTitle:_confirmTitle forState:UIControlStateNormal];
         [_dialogsView addSubview:_confirmButton];
         
         _cancelButton = [[MDButton alloc] initWithFrame:CGRectMake(_confirmButton.left - 72, _bodyLabel.bottom + 24, 72, 36) WithStyle:FlatButton];
-        [_cancelButton.button setTitle:_cancelTitle forState:UIControlStateNormal];
-        [_cancelButton.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_dialogsView addSubview:_cancelButton];
         
     }else if (_dialogsStyle == MDDialogsStacked){
         CGFloat width = [_confirmTitle maxTextSizeWithTextHeight:15 textFont:14].width;
         
         _confirmButton = [[MDButton alloc] initWithFrame:CGRectMake(_dialogsView.width - 16 - width, _bodyLabel.bottom + 24, width, 36) WithStyle:FlatButton];
-        [_confirmButton.button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [_confirmButton.button setTitle:_confirmTitle forState:UIControlStateNormal];
         [_dialogsView addSubview:_confirmButton];
         
         _cancelButton = [[MDButton alloc] initWithFrame:CGRectMake(_confirmButton.left, _confirmButton.bottom, width, 36) WithStyle:FlatButton];
-        [_cancelButton.button setTitle:_cancelTitle forState:UIControlStateNormal];
-        [_cancelButton.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         [_dialogsView addSubview:_cancelButton];
         
     }else if (_dialogsStyle == MDDialogsSideBySide){
         
         _cancelButton = [[MDButton alloc] initWithFrame:CGRectMake(16, _bodyLabel.bottom + 24, 124, 36) WithStyle:FlatButton];
-        [_cancelButton.button setTitle:_cancelTitle forState:UIControlStateNormal];
-        [_cancelButton.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        
         [_dialogsView addSubview:_cancelButton];
         
         _confirmButton = [[MDButton alloc] initWithFrame:CGRectMake(_cancelButton.right, _bodyLabel.bottom + 24, 124, 36) WithStyle:FlatButton];
-        [_confirmButton.button setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
-        [_confirmButton.button setTitle:_confirmTitle forState:UIControlStateNormal];
+        
         [_dialogsView addSubview:_confirmButton];
         
     }
     
+    [_cancelButton.button setTitle:_cancelTitle forState:UIControlStateNormal];
+    [_cancelButton.button setTitleColor:[UIColor colorWithRed:213/255.0 green:69/255.0 blue:66/255.0 alpha:1] forState:UIControlStateNormal];
+    [_confirmButton.button setTitleColor:[UIColor colorWithRed:213/255.0 green:69/255.0 blue:66/255.0 alpha:1] forState:UIControlStateNormal];
+    [_confirmButton.button setTitle:_confirmTitle forState:UIControlStateNormal];
     [_confirmButton.button addTarget:_target action:_confirmAction forControlEvents:UIControlEventTouchUpInside];
     [_cancelButton.button addTarget:_target action:_cancelAction forControlEvents:UIControlEventTouchUpInside];
     

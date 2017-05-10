@@ -96,7 +96,7 @@
     _maxHeight +=24;
     
     //有标题的话算上标题和标题跟body的距离
-    if (_dialogsTitle.length>0) {
+    if (_dialogsTitle.length > 0) {
         _maxHeight += 24;
         _maxHeight += 24;
     }
@@ -135,7 +135,12 @@
     [_dialogsView addSubview:_titleLabel];
     
     //文本内容
-    _bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(24, _titleLabel.bottom + 24, 232, bodyHeight)];
+    if (_dialogsTitle.length > 0) {
+        _bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(24, _titleLabel.bottom + 24, 232, bodyHeight)];
+    }else{
+        _bodyLabel = [[UILabel alloc] initWithFrame:CGRectMake(24, 24, 232, bodyHeight)];
+    }
+    
     _bodyLabel.textColor = [UIColor blackColor];
     _bodyLabel.text = _bodyStr;
     _bodyLabel.numberOfLines = 0;
@@ -179,6 +184,14 @@
     [_confirmButton.button addTarget:_target action:_confirmAction forControlEvents:UIControlEventTouchUpInside];
     [_cancelButton.button addTarget:_target action:_cancelAction forControlEvents:UIControlEventTouchUpInside];
     
+    if (_cancelTitle.length <= 0) {
+        _cancelButton.hidden = YES;
+    }
+    
+    if (_confirmTitle.length <= 0) {
+        _confirmButton.hidden = YES;
+    }
+    
     [self addShowDialogsAnimation];
 }
 
@@ -198,14 +211,14 @@
     [_dialogsView pop_addAnimation:popAnimation forKey:nil];
 }
 
-//添加提示框出现动画
+//添加提示框消失动画
 -(void)addHidDialogsAnimation{
     //滑出界面
     CAKeyframeAnimation *keyAnimation = [CAKeyframeAnimation animation];
     keyAnimation.keyPath = @"position";
-    keyAnimation.duration = 0.5;
+    keyAnimation.duration = 0.2;
     keyAnimation.delegate = self;
-    keyAnimation.values = [YXEasing calculateFrameFromPoint:CGPointMake(SCREEM_WIDTH/2.f, SCREEM_HEIGHT/2.f) toPoint:CGPointMake(SCREEM_WIDTH/2.f, SCREEM_HEIGHT + _maxHeight/2.f) func:QuinticEaseIn frameCount:0.5*30];
+    keyAnimation.values = [YXEasing calculateFrameFromPoint:CGPointMake(SCREEM_WIDTH/2.f, SCREEM_HEIGHT/2.f) toPoint:CGPointMake(SCREEM_WIDTH/2.f, SCREEM_HEIGHT + _maxHeight/2.f) func:QuinticEaseIn frameCount:0.2*30];
     _dialogsView.frame = CGRectMake(SCREEM_WIDTH/2.f, SCREEM_HEIGHT + _maxHeight/2.f, 280, _maxHeight);
     [_dialogsView.layer addAnimation:keyAnimation forKey:nil];
 }

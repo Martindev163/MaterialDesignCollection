@@ -13,8 +13,6 @@
 
 @interface MDButton ()<UIGestureRecognizerDelegate,CAAnimationDelegate>
 
-@property (nonatomic, strong) CAShapeLayer *ripplrLayer;
-
 @property (nonatomic, assign) MDButtonStyle myStyle;
 
 

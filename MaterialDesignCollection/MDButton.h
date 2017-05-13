@@ -17,6 +17,8 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, strong) UIButton *button;
 
+@property (nonatomic, strong) CAShapeLayer *ripplrLayer;
+
 -(instancetype)initWithFrame:(CGRect)frame WithStyle:(MDButtonStyle)Style;
 
 @end

@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		234696681EC5813D002790B7 /* MDTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 234696671EC5813D002790B7 /* MDTabBarVC.m */; };
+		2346966C1EC5818E002790B7 /* FirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2346966B1EC5818E002790B7 /* FirstVC.m */; };
+		2346966F1EC5819F002790B7 /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2346966E1EC5819F002790B7 /* SecondVC.m */; };
+		234696721EC581B1002790B7 /* ThirdVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 234696711EC581B1002790B7 /* ThirdVC.m */; };
+		234696751EC581C2002790B7 /* FouthVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 234696741EC581C2002790B7 /* FouthVC.m */; };
+		2346967B1EC5B3C7002790B7 /* MDTabBarButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 2346967A1EC5B3C7002790B7 /* MDTabBarButton.m */; };
 		2382AD391EC15D1C008727E1 /* MDDialogs.m in Sources */ = {isa = PBXBuildFile; fileRef = 2382AD381EC15D1C008727E1 /* MDDialogs.m */; };
 		2382AD3C1EC168C5008727E1 /* DialogsVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2382AD3B1EC168C5008727E1 /* DialogsVC.m */; };
 		2382AD3F1EC1996C008727E1 /* NSString+AttributedText.m in Sources */ = {isa = PBXBuildFile; fileRef = 2382AD3E1EC1996C008727E1 /* NSString+AttributedText.m */; };
@@ -65,6 +71,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		234696661EC5813D002790B7 /* MDTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTabBarVC.h; sourceTree = "<group>"; };
+		234696671EC5813D002790B7 /* MDTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTabBarVC.m; sourceTree = "<group>"; };
+		2346966A1EC5818E002790B7 /* FirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstVC.h; sourceTree = "<group>"; };
+		2346966B1EC5818E002790B7 /* FirstVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstVC.m; sourceTree = "<group>"; };
+		2346966D1EC5819F002790B7 /* SecondVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondVC.h; sourceTree = "<group>"; };
+		2346966E1EC5819F002790B7 /* SecondVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondVC.m; sourceTree = "<group>"; };
+		234696701EC581B1002790B7 /* ThirdVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ThirdVC.h; sourceTree = "<group>"; };
+		234696711EC581B1002790B7 /* ThirdVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThirdVC.m; sourceTree = "<group>"; };
+		234696731EC581C2002790B7 /* FouthVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FouthVC.h; sourceTree = "<group>"; };
+		234696741EC581C2002790B7 /* FouthVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FouthVC.m; sourceTree = "<group>"; };
+		234696791EC5B3C7002790B7 /* MDTabBarButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTabBarButton.h; sourceTree = "<group>"; };
+		2346967A1EC5B3C7002790B7 /* MDTabBarButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTabBarButton.m; sourceTree = "<group>"; };
 		2382AD371EC15D1C008727E1 /* MDDialogs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDDialogs.h; sourceTree = "<group>"; };
 		2382AD381EC15D1C008727E1 /* MDDialogs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDDialogs.m; sourceTree = "<group>"; };
 		2382AD3A1EC168C5008727E1 /* DialogsVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DialogsVC.h; sourceTree = "<group>"; };
@@ -181,6 +199,21 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		234696691EC58174002790B7 /* useVC */ = {
+			isa = PBXGroup;
+			children = (
+				2346966A1EC5818E002790B7 /* FirstVC.h */,
+				2346966B1EC5818E002790B7 /* FirstVC.m */,
+				2346966D1EC5819F002790B7 /* SecondVC.h */,
+				2346966E1EC5819F002790B7 /* SecondVC.m */,
+				234696701EC581B1002790B7 /* ThirdVC.h */,
+				234696711EC581B1002790B7 /* ThirdVC.m */,
+				234696731EC581C2002790B7 /* FouthVC.h */,
+				234696741EC581C2002790B7 /* FouthVC.m */,
+			);
+			name = useVC;
+			sourceTree = "<group>";
+		};
 		2382AD461EC19EAF008727E1 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +357,8 @@
 				23A882D01EBC6E6900485AC9 /* MDButton.m */,
 				2382AD371EC15D1C008727E1 /* MDDialogs.h */,
 				2382AD381EC15D1C008727E1 /* MDDialogs.m */,
+				234696791EC5B3C7002790B7 /* MDTabBarButton.h */,
+				2346967A1EC5B3C7002790B7 /* MDTabBarButton.m */,
 			);
 			name = controls;
 			sourceTree = "<group>";
@@ -331,10 +366,13 @@
 		2387C81C1EBB211A00108317 /* controller */ = {
 			isa = PBXGroup;
 			children = (
+				234696691EC58174002790B7 /* useVC */,
 				2387C81D1EBB214300108317 /* ButtonVC.h */,
 				2387C81E1EBB214300108317 /* ButtonVC.m */,
 				2382AD3A1EC168C5008727E1 /* DialogsVC.h */,
 				2382AD3B1EC168C5008727E1 /* DialogsVC.m */,
+				234696661EC5813D002790B7 /* MDTabBarVC.h */,
+				234696671EC5813D002790B7 /* MDTabBarVC.m */,
 			);
 			name = controller;
 			sourceTree = "<group>";
@@ -500,11 +538,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2346967B1EC5B3C7002790B7 /* MDTabBarButton.m in Sources */,
 				2382AD3F1EC1996C008727E1 /* NSString+AttributedText.m in Sources */,
+				2346966F1EC5819F002790B7 /* SecondVC.m in Sources */,
 				23A882CD1EBC1D8200485AC9 /* easing.c in Sources */,
 				2387C81A1EBB0F7400108317 /* UIView+Extension.m in Sources */,
 				2382AD921EC1EB3F008727E1 /* POPMath.mm in Sources */,
 				2382AD8A1EC1EB3F008727E1 /* POPAnimationTracer.mm in Sources */,
+				2346966C1EC5818E002790B7 /* FirstVC.m in Sources */,
 				2382AD881EC1EB3F008727E1 /* POPAnimationExtras.mm in Sources */,
 				2382AD8C1EC1EB3F008727E1 /* POPBasicAnimation.mm in Sources */,
 				2382AD951EC1EB3F008727E1 /* POPVector.mm in Sources */,
@@ -512,11 +553,13 @@
 				2382AD911EC1EB3F008727E1 /* POPLayerExtras.mm in Sources */,
 				2382AD861EC1EB3F008727E1 /* POPAnimation.mm in Sources */,
 				2382AD891EC1EB3F008727E1 /* POPAnimationRuntime.mm in Sources */,
+				234696751EC581C2002790B7 /* FouthVC.m in Sources */,
 				2382AD931EC1EB3F008727E1 /* POPPropertyAnimation.mm in Sources */,
 				23A882D11EBC6E6900485AC9 /* MDButton.m in Sources */,
 				2382AD871EC1EB3F008727E1 /* POPAnimationEvent.mm in Sources */,
 				2382AD8F1EC1EB3F008727E1 /* POPDecayAnimation.mm in Sources */,
 				2382AD941EC1EB3F008727E1 /* POPSpringAnimation.mm in Sources */,
+				234696681EC5813D002790B7 /* MDTabBarVC.m in Sources */,
 				2387C7E91EBB0EEE00108317 /* ViewController.m in Sources */,
 				2382AD3C1EC168C5008727E1 /* DialogsVC.m in Sources */,
 				2382AD961EC1EB3F008727E1 /* TransformationMatrix.cpp in Sources */,
@@ -525,6 +568,7 @@
 				2387C81F1EBB214300108317 /* ButtonVC.m in Sources */,
 				2382AD901EC1EB3F008727E1 /* POPGeometry.mm in Sources */,
 				2382AD8B1EC1EB3F008727E1 /* POPAnimator.mm in Sources */,
+				234696721EC581B1002790B7 /* ThirdVC.m in Sources */,
 				2387C7E61EBB0EEE00108317 /* AppDelegate.m in Sources */,
 				2382AD481EC1A10E008727E1 /* main.m in Sources */,
 				2382AD8E1EC1EB3F008727E1 /* POPCustomAnimation.mm in Sources */,

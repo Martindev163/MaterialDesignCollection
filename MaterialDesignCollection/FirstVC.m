@@ -18,7 +18,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title = @"发现";
+    self.title = @"发现";
     self.view.backgroundColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1.f];
     
     UIButton *goBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 40)];

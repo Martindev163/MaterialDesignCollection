@@ -7,6 +7,8 @@
 //
 
 #import "FirstVC.h"
+#import "testViewController.h"
+#import "MDNavigationController.h"
 
 @interface FirstVC ()
 
@@ -16,7 +18,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+//    self.title = @"发现";
+    self.view.backgroundColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1.f];
+    
+    UIButton *goBtn = [[UIButton alloc] initWithFrame:CGRectMake(100, 100, 100, 40)];
+    [goBtn setTitle:@"点我" forState:UIControlStateNormal];
+    goBtn.backgroundColor = [UIColor redColor];
+    [self.view addSubview:goBtn];
+    [goBtn addTarget:self action:@selector(goPage) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)goPage{
+    testViewController *vc = [[testViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

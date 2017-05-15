@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "Defines.h"
 #import "ViewController.h"
+#import "MDNavigationController.h"
 
 @interface AppDelegate ()
 
@@ -20,13 +21,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    ViewController *viewVC = [[ViewController alloc] init];
+//    ViewController *viewVC = [[ViewController alloc] init];
     
-    UINavigationController *rootVC = [[UINavigationController alloc] initWithRootViewController:viewVC];
+    _rootVC = [[MDTabBarVC alloc] init];
     
+//    MDNavigationController *rootVC = [[MDNavigationController alloc] initWithRootViewController:viewVC];
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     self.window.backgroundColor = [UIColor whiteColor];
-    self.window.rootViewController = rootVC;
+    self.window.rootViewController = _rootVC;
     [self.window makeKeyAndVisible];
     
     return YES;

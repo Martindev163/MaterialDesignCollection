@@ -28,7 +28,7 @@
     if (self) {
         _myStyle = Style;
         _ripplrLayer = [CAShapeLayer layer];
-        
+        _duration = 0.5f;
         
         if (Style == FloatingActionButton) {
             [self loadShadow];
@@ -106,12 +106,17 @@
 //-(void)touchesCancelled:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 //{}
 
+-(void)setDuration:(CGFloat)duration
+{
+    _duration = duration;
+}
+
 
 //设置水墨动画
 -(CABasicAnimation *)loadRipplrAnimationWithLocation:(CGPoint)location duration:(CGFloat)duration{
     
     if (_myStyle == FlatButton) {
-        self.backgroundColor = [UIColor colorWithHue:0 saturation:0 brightness:0 alpha:0.2];
+        self.backgroundColor = [UIColor colorWithRed:0 green:0 blue:0 alpha:0.2f];
     }
     
     UIBezierPath *fromPaht = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(location.x, location.y, 0, 0)];
@@ -161,7 +166,7 @@
     
     NSLog(@"%@",[NSValue valueWithCGPoint:point]);
     if (_myStyle != FloatingActionButton) {
-        CABasicAnimation *animation = [self loadRipplrAnimationWithLocation:point duration:.5f];
+        CABasicAnimation *animation = [self loadRipplrAnimationWithLocation:point duration:_duration];
         
         [_ripplrLayer addAnimation:animation forKey:nil];
     }
@@ -169,7 +174,7 @@
 
 -(void)buttonClick{
     if (_myStyle != FloatingActionButton) {
-        CABasicAnimation *animation = [self loadRipplrAnimationWithLocation:CGPointMake(self.width/2.f, self.height/2.f) duration:.5f];
+        CABasicAnimation *animation = [self loadRipplrAnimationWithLocation:CGPointMake(self.width/2.f, self.height/2.f) duration:_duration];
         [_ripplrLayer addAnimation:animation forKey:nil];
     }
 }

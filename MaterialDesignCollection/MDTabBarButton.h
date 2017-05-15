@@ -10,6 +10,7 @@
 
 @interface MDTabBarButton : MDButton
 
+@property (nonatomic, assign) BOOL selected;
 
 //-(void)setImageWithImage:(UIImage *)image for;
 

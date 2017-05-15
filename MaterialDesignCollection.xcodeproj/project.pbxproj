@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2334DF101EC6F93D002FAD63 /* MDNavigationController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2334DF0F1EC6F93D002FAD63 /* MDNavigationController.m */; };
 		234696681EC5813D002790B7 /* MDTabBarVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 234696671EC5813D002790B7 /* MDTabBarVC.m */; };
 		2346966C1EC5818E002790B7 /* FirstVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2346966B1EC5818E002790B7 /* FirstVC.m */; };
 		2346966F1EC5819F002790B7 /* SecondVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2346966E1EC5819F002790B7 /* SecondVC.m */; };
@@ -48,6 +49,7 @@
 		2387C80A1EBB0EEE00108317 /* MaterialDesignCollectionUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2387C8091EBB0EEE00108317 /* MaterialDesignCollectionUITests.m */; };
 		2387C81A1EBB0F7400108317 /* UIView+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 2387C8191EBB0F7400108317 /* UIView+Extension.m */; };
 		2387C81F1EBB214300108317 /* ButtonVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2387C81E1EBB214300108317 /* ButtonVC.m */; };
+		238FB4051EC95AF30076299D /* testViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 238FB4041EC95AF30076299D /* testViewController.m */; };
 		23A882CD1EBC1D8200485AC9 /* easing.c in Sources */ = {isa = PBXBuildFile; fileRef = 23A882C91EBC1D8200485AC9 /* easing.c */; };
 		23A882CE1EBC1D8200485AC9 /* YXEasing.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A882CC1EBC1D8200485AC9 /* YXEasing.m */; };
 		23A882D11EBC6E6900485AC9 /* MDButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 23A882D01EBC6E6900485AC9 /* MDButton.m */; };
@@ -71,6 +73,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2334DF0E1EC6F93D002FAD63 /* MDNavigationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDNavigationController.h; sourceTree = "<group>"; };
+		2334DF0F1EC6F93D002FAD63 /* MDNavigationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDNavigationController.m; sourceTree = "<group>"; };
 		234696661EC5813D002790B7 /* MDTabBarVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MDTabBarVC.h; sourceTree = "<group>"; };
 		234696671EC5813D002790B7 /* MDTabBarVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MDTabBarVC.m; sourceTree = "<group>"; };
 		2346966A1EC5818E002790B7 /* FirstVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstVC.h; sourceTree = "<group>"; };
@@ -166,6 +170,8 @@
 		2387C81B1EBB0F9D00108317 /* Defines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
 		2387C81D1EBB214300108317 /* ButtonVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonVC.h; sourceTree = "<group>"; };
 		2387C81E1EBB214300108317 /* ButtonVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonVC.m; sourceTree = "<group>"; };
+		238FB4031EC95AF30076299D /* testViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = testViewController.h; sourceTree = "<group>"; };
+		238FB4041EC95AF30076299D /* testViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = testViewController.m; sourceTree = "<group>"; };
 		23A882C91EBC1D8200485AC9 /* easing.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = easing.c; sourceTree = "<group>"; };
 		23A882CA1EBC1D8200485AC9 /* easing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = easing.h; sourceTree = "<group>"; };
 		23A882CB1EBC1D8200485AC9 /* YXEasing.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXEasing.h; sourceTree = "<group>"; };
@@ -210,6 +216,8 @@
 				234696711EC581B1002790B7 /* ThirdVC.m */,
 				234696731EC581C2002790B7 /* FouthVC.h */,
 				234696741EC581C2002790B7 /* FouthVC.m */,
+				238FB4031EC95AF30076299D /* testViewController.h */,
+				238FB4041EC95AF30076299D /* testViewController.m */,
 			);
 			name = useVC;
 			sourceTree = "<group>";
@@ -359,6 +367,8 @@
 				2382AD381EC15D1C008727E1 /* MDDialogs.m */,
 				234696791EC5B3C7002790B7 /* MDTabBarButton.h */,
 				2346967A1EC5B3C7002790B7 /* MDTabBarButton.m */,
+				2334DF0E1EC6F93D002FAD63 /* MDNavigationController.h */,
+				2334DF0F1EC6F93D002FAD63 /* MDNavigationController.m */,
 			);
 			name = controls;
 			sourceTree = "<group>";
@@ -548,6 +558,7 @@
 				2346966C1EC5818E002790B7 /* FirstVC.m in Sources */,
 				2382AD881EC1EB3F008727E1 /* POPAnimationExtras.mm in Sources */,
 				2382AD8C1EC1EB3F008727E1 /* POPBasicAnimation.mm in Sources */,
+				238FB4051EC95AF30076299D /* testViewController.m in Sources */,
 				2382AD951EC1EB3F008727E1 /* POPVector.mm in Sources */,
 				2382AD851EC1EB3F008727E1 /* POPAnimatableProperty.mm in Sources */,
 				2382AD911EC1EB3F008727E1 /* POPLayerExtras.mm in Sources */,
@@ -569,6 +580,7 @@
 				2382AD901EC1EB3F008727E1 /* POPGeometry.mm in Sources */,
 				2382AD8B1EC1EB3F008727E1 /* POPAnimator.mm in Sources */,
 				234696721EC581B1002790B7 /* ThirdVC.m in Sources */,
+				2334DF101EC6F93D002FAD63 /* MDNavigationController.m in Sources */,
 				2387C7E61EBB0EEE00108317 /* AppDelegate.m in Sources */,
 				2382AD481EC1A10E008727E1 /* main.m in Sources */,
 				2382AD8E1EC1EB3F008727E1 /* POPCustomAnimation.mm in Sources */,

@@ -8,6 +8,7 @@
 
 #import "ButtonVC.h"
 #import "MDButton.h"
+#import "testViewController.h"
 
 @interface ButtonVC ()
 
@@ -17,6 +18,11 @@
 @end
 
 @implementation ButtonVC
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.title = @"按钮";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -41,6 +47,12 @@
     [_flatBtn.button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     [_flatBtn.button setTitle:@"哈哈哈哈" forState:UIControlStateNormal];
     [self.view addSubview:_flatBtn];
+    [_flatBtn.button addTarget:self action:@selector(tuenPage) forControlEvents:UIControlEventTouchUpInside];
+}
+
+-(void)tuenPage{
+    testViewController *vc = [[testViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

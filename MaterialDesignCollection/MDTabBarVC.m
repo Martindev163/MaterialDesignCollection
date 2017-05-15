@@ -16,12 +16,23 @@
 #import "MDButton.h"
 #import "MDTabBarButton.h"
 #import "UIView+Extension.h"
+#import "MDNavigationController.h"
+#import "ViewController.h"
 
+#define AnimationDuration 0.3
 
-@interface MDTabBarVC ()
+@interface MDTabBarVC ()<UITabBarDelegate>
 
 @property (nonatomic, strong) UITabBarController *tabBarVC;
 
+@property (nonatomic, strong) MDTabBarButton *firstBtn;
+@property (nonatomic, strong) MDTabBarButton *secondBtn;
+@property (nonatomic, strong) MDTabBarButton *thirdBtn;
+@property (nonatomic, strong) MDTabBarButton *fourthBtn;
+
+@property (nonatomic, strong) MDTabBarButton *selectedBtn;
+
+@property (nonatomic, strong) UIView *myView;
 @end
 
 @implementation MDTabBarVC
@@ -33,26 +44,31 @@
     
     self.tabBar.tintColor = [UIColor colorWithRed:208/255.0 green:40/255.0 blue:32/255.0 alpha:1.f];
     
-    FirstVC *fVC  = [[FirstVC alloc] init];
-    UINavigationController *oneNav = [[UINavigationController alloc] initWithRootViewController:fVC];
+    ViewController *fVC  = [[ViewController alloc] init];
+    MDNavigationController *oneNav = [[MDNavigationController alloc] initWithRootViewController:fVC];
     oneNav.tabBarItem.image = [[UIImage imageNamed:@"invest_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     oneNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"invest_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    oneNav.title = @"首页";
+    oneNav.title = @"列表";
     [self addChildViewController:oneNav];
     
-    UINavigationController *twoNav = [[UINavigationController alloc] initWithRootViewController:[[SecondVC alloc] init]];
+    FirstVC *sVC = [[FirstVC alloc] init];
+    MDNavigationController *twoNav = [[MDNavigationController alloc] initWithRootViewController:sVC];
     twoNav.tabBarItem.image = [[UIImage imageNamed:@"discover_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     twoNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"discover_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     twoNav.title = @"发现";
     [self addChildViewController:twoNav];
     
-    UINavigationController *threeNav = [[UINavigationController alloc] initWithRootViewController:[[ThirdVC alloc] init]];
+    
+    ThirdVC *tVC = [[ThirdVC alloc] init];
+    MDNavigationController *threeNav = [[MDNavigationController alloc] initWithRootViewController:tVC];
     threeNav.tabBarItem.image = [[UIImage imageNamed:@"community_normal" ] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     threeNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"community_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     threeNav.title = @"社区";
     [self addChildViewController:threeNav];
     
-    UINavigationController *fourNav = [[UINavigationController alloc] initWithRootViewController:[[FouthVC alloc] init]];
+    
+    FouthVC *fouthVC = [[FouthVC alloc] init];
+    MDNavigationController *fourNav = [[MDNavigationController alloc] initWithRootViewController:fouthVC];
     fourNav.tabBarItem.image = [[UIImage imageNamed:@"account_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     fourNav.tabBarItem.selectedImage = [[UIImage imageNamed:@"account_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     fourNav.title = @"我的";
@@ -67,39 +83,99 @@
     
     CGRect tabBarRect = self.tabBar.frame;
     [self.tabBar removeFromSuperview];
-    UIView *myView = [[UIView alloc] initWithFrame:tabBarRect];
-    myView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:myView];
+    _myView = [[UIView alloc] initWithFrame:tabBarRect];
+    _myView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:_myView];
     
-    myView.layer.shadowColor = [UIColor blackColor].CGColor;
-    myView.layer.shadowOffset = CGSizeMake(0, 2);
-    myView.layer.shadowOpacity = .3f;
-    myView.layer.shadowRadius = 3;
+    _myView.layer.shadowColor = [UIColor blackColor].CGColor;
+    _myView.layer.shadowOffset = CGSizeMake(0, 2);
+    _myView.layer.shadowOpacity = .3f;
+    _myView.layer.shadowRadius = 3;
     
     CGFloat btnWidth = SCREEM_WIDTH/4.f;
-    MDTabBarButton *firstBtn = [[MDTabBarButton alloc] initWithFrame:CGRectMake(0, 0, btnWidth, tabBarRect.size.height) WithStyle:RaisedButton];
-    [firstBtn setButtonImage:[UIImage imageNamed:@"invest_normal"] forState:UIControlStateNormal];
-    [firstBtn setButtonImage:[UIImage imageNamed:@"invest_selected"] forState:UIControlStateSelected];
-    [firstBtn setButtonTitle:@"首页" forState:UIControlStateNormal];
-    [myView addSubview:firstBtn];
     
-    MDTabBarButton *secondBtn = [[MDTabBarButton alloc] initWithFrame:CGRectMake(firstBtn.right, 0, btnWidth, tabBarRect.size.height) WithStyle:RaisedButton];
-    [secondBtn setButtonImage:[UIImage imageNamed:@"discover_normal"] forState:UIControlStateNormal];
-    [secondBtn setButtonImage:[UIImage imageNamed:@"discover_selected"] forState:UIControlStateSelected];
-    [secondBtn setButtonTitle:@"发现" forState:UIControlStateNormal];
-    [myView addSubview:secondBtn];
+    ///第一个按钮
+    _firstBtn = [[MDTabBarButton alloc] initWithFrame:CGRectMake(0, 0, btnWidth, tabBarRect.size.height) WithStyle:RaisedButton];
+    _firstBtn.button.tag = 101;
+    _firstBtn.duration = AnimationDuration;
+    [_firstBtn.button addTarget:self action:@selector(clickTabBarButtonWith:) forControlEvents:UIControlEventTouchUpInside];
+    [_firstBtn setButtonImage:[UIImage imageNamed:@"invest_normal"] forState:UIControlStateNormal];
+    [_firstBtn setButtonImage:[UIImage imageNamed:@"invest_selected"] forState:UIControlStateSelected];
+    [_firstBtn setButtonTitle:@"列表" forState:UIControlStateNormal];
+    [_firstBtn setButtonTitleColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.38f] forState:UIControlStateNormal];
+    [_firstBtn setButtonTitleColor:[UIColor colorWithRed:244/255.0 green:67/255.0 blue:54/255.0 alpha:1.f] forState:UIControlStateSelected];
+    [_myView addSubview:_firstBtn];
     
-    MDTabBarButton *thirdBtn = [[MDTabBarButton alloc] initWithFrame:CGRectMake(secondBtn.right, 0, btnWidth, tabBarRect.size.height) WithStyle:RaisedButton];
-    [thirdBtn setButtonTitle:@"社区" forState:UIControlStateNormal];
-    [thirdBtn setButtonImage:[UIImage imageNamed:@"community_normal"] forState:UIControlStateNormal];
-    [thirdBtn setButtonImage:[UIImage imageNamed:@"community_selected"] forState:UIControlStateSelected];
-    [myView addSubview:thirdBtn];
     
-    MDTabBarButton *fourthBtn = [[MDTabBarButton alloc] initWithFrame:CGRectMake(thirdBtn.right, 0, btnWidth, tabBarRect.size.height) WithStyle:RaisedButton];
-    [fourthBtn setButtonTitle:@"我的" forState:UIControlStateNormal];
-    [fourthBtn setButtonImage:[UIImage imageNamed:@"account_normal"] forState:UIControlStateNormal];
-    [fourthBtn setButtonImage:[UIImage imageNamed:@"account_selected"] forState:UIControlStateSelected];
-    [myView addSubview:fourthBtn];
+    ///第二个按钮
+    _secondBtn = [[MDTabBarButton alloc] initWithFrame:CGRectMake(_firstBtn.right, 0, btnWidth, tabBarRect.size.height) WithStyle:RaisedButton];
+    _secondBtn.button.tag = 102;
+    _secondBtn.duration = AnimationDuration;
+    [_secondBtn.button addTarget:self action:@selector(clickTabBarButtonWith:) forControlEvents:UIControlEventTouchUpInside];
+    [_secondBtn setButtonImage:[UIImage imageNamed:@"discover_normal"] forState:UIControlStateNormal];
+    [_secondBtn setButtonImage:[UIImage imageNamed:@"discover_selected"] forState:UIControlStateSelected];
+    [_secondBtn setButtonTitle:@"发现" forState:UIControlStateNormal];
+    [_secondBtn setButtonTitleColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.38f] forState:UIControlStateNormal];
+    [_secondBtn setButtonTitleColor:[UIColor colorWithRed:244/255.0 green:67/255.0 blue:54/255.0 alpha:1.f] forState:UIControlStateSelected];
+    [_myView addSubview:_secondBtn];
+    
+    
+    ///第三个按钮
+    _thirdBtn = [[MDTabBarButton alloc] initWithFrame:CGRectMake(_secondBtn.right, 0, btnWidth, tabBarRect.size.height) WithStyle:RaisedButton];
+    _thirdBtn.button.tag = 103;
+    _thirdBtn.duration = AnimationDuration;
+    [_thirdBtn.button addTarget:self action:@selector(clickTabBarButtonWith:) forControlEvents:UIControlEventTouchUpInside];
+    [_thirdBtn setButtonTitle:@"社区" forState:UIControlStateNormal];
+    [_thirdBtn setButtonImage:[UIImage imageNamed:@"community_normal"] forState:UIControlStateNormal];
+    [_thirdBtn setButtonImage:[UIImage imageNamed:@"community_selected"] forState:UIControlStateSelected];
+    [_thirdBtn setButtonTitleColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.38f] forState:UIControlStateNormal];
+    [_thirdBtn setButtonTitleColor:[UIColor colorWithRed:244/255.0 green:67/255.0 blue:54/255.0 alpha:1.f] forState:UIControlStateSelected];
+    [_myView addSubview:_thirdBtn];
+    
+    
+    ///第四个按钮
+    _fourthBtn = [[MDTabBarButton alloc] initWithFrame:CGRectMake(_thirdBtn.right, 0, btnWidth, tabBarRect.size.height) WithStyle:RaisedButton];
+    _fourthBtn.button.tag = 104;
+    _fourthBtn.duration = AnimationDuration;
+    [_fourthBtn.button addTarget:self action:@selector(clickTabBarButtonWith:) forControlEvents:UIControlEventTouchUpInside];
+    [_fourthBtn setButtonTitle:@"我的" forState:UIControlStateNormal];
+    [_fourthBtn setButtonImage:[UIImage imageNamed:@"account_normal"] forState:UIControlStateNormal];
+    [_fourthBtn setButtonImage:[UIImage imageNamed:@"account_selected"] forState:UIControlStateSelected];
+    [_fourthBtn setButtonTitleColor:[UIColor colorWithRed:0 green:0 blue:0 alpha:.38f] forState:UIControlStateNormal];
+    [_fourthBtn setButtonTitleColor:[UIColor colorWithRed:244/255.0 green:67/255.0 blue:54/255.0 alpha:1.f] forState:UIControlStateSelected];
+    [_myView addSubview:_fourthBtn];
+    
+    _firstBtn.selected = YES;
+    _selectedBtn = _firstBtn;
+    self.title = @"列表";
+    [self setSelectedIndex:0];
+}
+
+
+//显示导航栏
+-(void)showTabBarWithAnimation:(BOOL)animation{
+    self.myView.hidden = NO;
+}
+//隐藏导航栏
+-(void)hiddenTabBarWtiAnimation:(BOOL)animation{
+    self.myView.hidden = YES;
+}
+
+
+//切换控制器
+-(void)clickTabBarButtonWith:(UIButton *)btn{
+    [_selectedBtn setButtonStateWithStyle:UIControlStateNormal];
+    if (btn.tag == 101) {
+        _selectedBtn = _firstBtn;
+    }else if (btn.tag == 102){
+        _selectedBtn = _secondBtn;
+    }else if (btn.tag == 103){
+        _selectedBtn = _thirdBtn;
+    }else if (btn.tag == 104){
+        _selectedBtn = _fourthBtn;
+    }
+    [_selectedBtn setButtonStateWithStyle:UIControlStateSelected];
+    [self setSelectedIndex:(btn.tag - 101)];
 }
 
 @end

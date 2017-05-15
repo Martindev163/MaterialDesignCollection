@@ -1,23 +1,29 @@
 //
-//  FouthVC.m
+//  testViewController.m
 //  MaterialDesignCollection
 //
-//  Created by 马浩哲 on 2017/5/12.
+//  Created by 马浩哲 on 2017/5/15.
 //  Copyright © 2017年 junanxin. All rights reserved.
 //
 
-#import "FouthVC.h"
+#import "testViewController.h"
 
-@interface FouthVC ()
+@interface testViewController ()
 
 @end
 
-@implementation FouthVC
+@implementation testViewController
+
+-(void)viewWillAppear:(BOOL)animated
+{
+    self.title = @"测试页面";
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-//    self.title = @"我的";
-    self.view.backgroundColor = [UIColor colorWithRed:220/255.0 green:220/255.0 blue:220/255.0 alpha:1.f];
+    
+    self.view.backgroundColor = [UIColor greenColor];
+    
 }
 
 - (void)didReceiveMemoryWarning {

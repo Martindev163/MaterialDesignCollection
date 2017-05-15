@@ -11,7 +11,6 @@
 #import "Defines.h"
 #import "ButtonVC.h"
 #import "DialogsVC.h"
-#import "MDTabBarVC.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 
@@ -26,8 +25,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    self.title = @"列表";
     
-    _items = [[NSArray alloc] initWithObjects:@"按钮",@"提示框",@"分栏", nil];
+    _items = [[NSArray alloc] initWithObjects:@"按钮",@"提示框", nil];
     
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, SCREEM_WIDTH, SCREEM_HEIGHT-64)];
     _tableView.delegate = self;
@@ -73,9 +73,6 @@
         [self.navigationController pushViewController:vc animated:YES];
     }else if (indexPath.row == 1){
         DialogsVC *vc = [[DialogsVC alloc] init];
-        [self.navigationController pushViewController:vc animated:YES];
-    }else if (indexPath.row == 2){
-        MDTabBarVC *vc = [[MDTabBarVC alloc] init];
         [self.navigationController pushViewController:vc animated:YES];
     }
 }

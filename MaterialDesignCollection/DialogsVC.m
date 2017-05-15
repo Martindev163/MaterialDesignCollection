@@ -10,6 +10,7 @@
 #import "MDDialogs.h"
 #import "MDButton.h"
 #import "Defines.h"
+#import "testViewController.h"
 
 @interface DialogsVC ()
 
@@ -19,8 +20,14 @@
 
 @implementation DialogsVC
 
+-(void)viewWillAppear:(BOOL)animated{
+    self.title = @"提示框";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -44,5 +51,8 @@
 //选择提示框的确定按钮
 -(void)clickConfirmButton{
     [_dialogsView hidMDDialogs];
+    
+    testViewController *vc = [[testViewController alloc] init];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 @end

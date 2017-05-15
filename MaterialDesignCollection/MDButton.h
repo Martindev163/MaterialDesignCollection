@@ -19,6 +19,8 @@ typedef enum : NSUInteger {
 
 @property (nonatomic, strong) CAShapeLayer *ripplrLayer;
 
+@property (nonatomic, assign) CGFloat duration;
+
 -(instancetype)initWithFrame:(CGRect)frame WithStyle:(MDButtonStyle)Style;
 
 @end

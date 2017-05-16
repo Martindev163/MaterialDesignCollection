@@ -10,7 +10,5 @@
 
 @interface MDNavigationController : UINavigationController
 
-@property (nonatomic, strong) NSString *MDTitle;
-
 
 @end

@@ -21,7 +21,7 @@
 
 #define AnimationDuration 0.3
 
-@interface MDTabBarVC ()<UITabBarDelegate>
+@interface MDTabBarVC ()<UITabBarDelegate,CAAnimationDelegate>
 
 @property (nonatomic, strong) UITabBarController *tabBarVC;
 
@@ -33,12 +33,15 @@
 @property (nonatomic, strong) MDTabBarButton *selectedBtn;
 
 @property (nonatomic, strong) UIView *myView;
+@property (nonatomic, strong) CAShapeLayer *ripplrLayer;
 @end
 
 @implementation MDTabBarVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    [self addTabBarShadow];
     
     self.view.backgroundColor = [UIColor whiteColor];
     
@@ -74,11 +77,13 @@
     fourNav.title = @"我的";
     [self addChildViewController:fourNav];
     
-    [self loadCustomTabBar];
+    
+    //方法一
+//    [self loadCustomTabBar];
 }
 
 
-#pragma mark - 自定义tabBar
+#pragma mark - 自定义tabBar （方法一）
 -(void)loadCustomTabBar{
     
     CGRect tabBarRect = self.tabBar.frame;
@@ -177,5 +182,169 @@
     [_selectedBtn setButtonStateWithStyle:UIControlStateSelected];
     [self setSelectedIndex:(btn.tag - 101)];
 }
+
+
+#pragma mark - 在系统控件上进行改进（方法二）下边代码直接粘贴上去就能用了
+
+-(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
+{
+    CGRect tempRect = CGRectZero;
+    
+    NSArray *viewArr = [NSArray arrayWithArray:self.tabBar.subviews];
+    
+    NSMutableArray *tabBarBtns = [NSMutableArray new];
+    for (UIView *view in viewArr) {
+        if ([view isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            CGRect tempRect = view.frame;
+            tempRect.origin.y = 0;
+            tempRect.size.height = 49;
+            view.frame = tempRect;
+            [tabBarBtns addObject:view];
+        }
+    }
+    
+    if ([item.title isEqualToString:@"列表"]) {
+        UIView *view = [tabBarBtns objectAtIndex:0];
+        tempRect = view.frame;
+    }else if ([item.title isEqualToString:@"发现"]){
+        UIView *view = [tabBarBtns objectAtIndex:1];
+        tempRect = view.frame;
+    }else if ([item.title isEqualToString:@"社区"]){
+        UIView *view = [tabBarBtns objectAtIndex:2];
+        tempRect = view.frame;
+    }else if ([item.title isEqualToString:@"我的"]){
+        UIView *view = [tabBarBtns objectAtIndex:3];
+        tempRect = view.frame;
+    }
+    
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.keyPath = @"transform.scale";
+    animation.fromValue = [NSNumber numberWithFloat:1.2f];
+    animation.toValue   = [NSNumber numberWithFloat:1.f];
+    animation.duration = 0.35f;
+    
+    UIView *view = [[UIView alloc] initWithFrame:tempRect];
+    [self addRipplrLayerWithView:view];
+    [tabBar addSubview:view];
+    
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(.35f * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [view removeFromSuperview];
+    });
+}
+
+//添加水墨
+-(void)addRipplrLayerWithView:(UIView *)view{
+    UIBezierPath *path = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(view.width/2.f, view.height/2.f, 0, 0)];
+    
+    _ripplrLayer = [CAShapeLayer layer];
+    _ripplrLayer.frame = view.bounds;
+    _ripplrLayer.position = CGPointMake(view.frame.size.width/2.f, view.frame.size.height/2.f);
+    _ripplrLayer.strokeColor = [UIColor clearColor].CGColor;
+    _ripplrLayer.fillColor = [UIColor colorWithRed:244/255.0 green:67/255.0 blue:54/255.0 alpha:0.5f].CGColor;
+    _ripplrLayer.path = path.CGPath;
+    _ripplrLayer.strokeStart = 0.f;
+    _ripplrLayer.strokeEnd = 1.f;
+    _ripplrLayer.masksToBounds = YES;
+    [view.layer addSublayer:_ripplrLayer];
+    
+    [_ripplrLayer addAnimation:[self loadRipplrAnimationWithLocation:CGPointMake(view.width/2.f, view.height/2.f) duration:.35f withView:view] forKey:nil];
+}
+
+//设置水墨动画
+-(CAAnimationGroup *)loadRipplrAnimationWithLocation:(CGPoint)location duration:(CGFloat)duration withView:(UIView *)view{
+    
+    UIBezierPath *fromPaht = [UIBezierPath bezierPathWithOvalInRect:CGRectMake(location.x, location.y, 0, 0)];
+    
+    CGFloat radius = 0.f ;
+    
+    radius = view.width/2.f;
+    
+    
+    CGRect newRect = CGRectInset(CGRectMake(view.width/2.f, view.height/2.f, 0, 0), -radius, -radius);
+    
+    UIBezierPath *toPath = [UIBezierPath bezierPathWithOvalInRect:newRect];
+    
+    CABasicAnimation *animation = [CABasicAnimation animation];
+    animation.delegate = self;
+    animation.keyPath = @"path";
+    animation.fromValue = (__bridge id _Nullable)(fromPaht.CGPath);
+    animation.toValue = (__bridge id _Nullable)(toPath.CGPath);
+    animation.duration = duration;
+    animation.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseInEaseOut];
+    
+    CABasicAnimation *alphAni = [CABasicAnimation animation];
+    alphAni.keyPath = @"opacity";
+    alphAni.fromValue = [NSNumber numberWithFloat:1.f];
+    alphAni.toValue   = [NSNumber numberWithFloat:0.f];
+    alphAni.duration = duration;
+    alphAni.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionEaseIn];
+    
+    CAAnimationGroup *group = [CAAnimationGroup animation];
+    group.animations = @[animation,alphAni];
+    group.duration = duration;
+    group.repeatCount = 1;
+    group.fillMode = kCAFillModeForwards;
+    group.removedOnCompletion = NO;
+    
+    return group;
+}
+
+//添加阴影 在viewdidload中调用
+-(void)addTabBarShadow{
+    self.tabBar.backgroundColor = [UIColor whiteColor];
+    [[UITabBar appearance] setShadowImage:[UIImage new]];
+    [[UITabBar appearance] setBackgroundImage:[[UIImage alloc]init]];
+    [self dropShadowWithOffset:CGSizeMake(0, 2)
+                        radius:3
+                         color:[UIColor blackColor]
+                       opacity:0.3];
+}
+
+//设置阴影
+- (void)dropShadowWithOffset:(CGSize)offset
+                      radius:(CGFloat)radius
+                       color:(UIColor *)color
+                     opacity:(CGFloat)opacity {
+    
+    CGMutablePathRef path = CGPathCreateMutable();
+    CGPathAddRect(path, NULL, self.tabBar.bounds);
+    self.tabBar.layer.shadowPath = path;
+    CGPathCloseSubpath(path);
+    CGPathRelease(path);
+    
+    self.tabBar.layer.shadowColor = color.CGColor;
+    self.tabBar.layer.shadowOffset = offset;
+    self.tabBar.layer.shadowRadius = radius;
+    self.tabBar.layer.shadowOpacity = opacity;
+    
+    self.tabBar.clipsToBounds = NO;
+}
+
+
+//找出tabbar的按钮
+- (void)layoutSubviews{
+    for (UIControl *tabBarButton in self.tabBar.subviews) {
+        if ([tabBarButton isKindOfClass:NSClassFromString(@"UITabBarButton")]) {
+            [tabBarButton addTarget:self action:@selector(tabBarButtonClick:) forControlEvents:UIControlEventTouchUpInside];
+        }
+    }
+}
+//tabBarButton点击事件
+- (void)tabBarButtonClick:(UIControl *)tabBarButton
+{
+    for (UIView *imageView in tabBarButton.subviews) {
+        if ([imageView isKindOfClass:NSClassFromString(@"UITabBarSwappableImageView")]) {
+            //需要实现的帧动画,这里根据需求自定义
+            CAKeyframeAnimation *animation = [CAKeyframeAnimation animation];
+            animation.keyPath = @"transform.scale";
+            animation.values = @[@1.0,@1.3,@0.9,@1.15,@0.95,@1.02,@1.0];
+            animation.duration = 1;
+            animation.calculationMode = kCAAnimationCubic;
+            //把动画添加上去就OK了
+            [imageView.layer addAnimation:animation forKey:nil];
+        }
+    }
+}
+
 
 @end

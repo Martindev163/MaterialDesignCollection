@@ -38,6 +38,15 @@
 
 @implementation MDTabBarVC
 
+
+-(void)viewDidLayoutSubviews
+{
+    [super viewDidLayoutSubviews];
+    
+    [self layoutSubviews];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     

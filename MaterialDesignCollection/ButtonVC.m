@@ -51,8 +51,6 @@
 }
 
 -(void)tuenPage{
-    testViewController *vc = [[testViewController alloc] init];
-    [self.navigationController pushViewController:vc animated:YES];
 }
 
 @end

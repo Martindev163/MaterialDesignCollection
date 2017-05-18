@@ -46,14 +46,12 @@
 
 @property (nonatomic, assign) SEL cancelAction;
 
-@property (nonatomic, strong) id target;
-
 @property (nonatomic, assign) CGFloat maxHeight;
 @end
 
 @implementation MDDialogs
 
--(instancetype)initWithFrame:(CGRect)frame WithStyle:(MDDialogsStyle)Style Title:(NSString *)title Body:(NSString *)body ConfirmButtonTitle:(NSString *)confirmTitle CancelButtonTitle:(NSString *)cancelTitle confirmAction:(SEL)confirmAction cancelAction:(SEL)cancelAction target:(id)target{
+-(instancetype)initWithFrame:(CGRect)frame WithStyle:(MDDialogsStyle)Style Title:(NSString *)title Body:(NSString *)body ConfirmButtonTitle:(NSString *)confirmTitle CancelButtonTitle:(NSString *)cancelTitle confirmAction:(DialogViewCallBackBlock)confirmAction cancelAction:(DialogViewCallBackBlock)cancelAction{
     
     self = [super initWithFrame:frame];
     
@@ -63,10 +61,8 @@
         _confirmTitle = confirmTitle;
         _cancelTitle  = cancelTitle;
         _dialogsStyle = Style;
-        
-        _confirmAction = confirmAction;
-        _cancelAction  = cancelAction;
-        _target = target;
+        self.confirmBlock = confirmAction;
+        self.cancelBlock = cancelAction;
     }
     
     return self;
@@ -181,8 +177,8 @@
     [_cancelButton.button setTitleColor:[UIColor colorWithRed:213/255.0 green:69/255.0 blue:66/255.0 alpha:1] forState:UIControlStateNormal];
     [_confirmButton.button setTitleColor:[UIColor colorWithRed:213/255.0 green:69/255.0 blue:66/255.0 alpha:1] forState:UIControlStateNormal];
     [_confirmButton.button setTitle:_confirmTitle forState:UIControlStateNormal];
-    [_confirmButton.button addTarget:_target action:_confirmAction forControlEvents:UIControlEventTouchUpInside];
-    [_cancelButton.button addTarget:_target action:_cancelAction forControlEvents:UIControlEventTouchUpInside];
+    [_confirmButton.button addTarget:self action:@selector(clickConfirmBtnAction) forControlEvents:UIControlEventTouchUpInside];
+    [_cancelButton.button addTarget:self action:@selector(clickCancelBtnAction) forControlEvents:UIControlEventTouchUpInside];
     
     if (_cancelTitle.length <= 0) {
         _cancelButton.hidden = YES;
@@ -193,6 +189,20 @@
     }
     
     [self addShowDialogsAnimation];
+}
+
+-(void)clickConfirmBtnAction{
+    if (self.confirmBlock) {
+        self.confirmBlock();
+    }
+    [self addHidDialogsAnimation];
+}
+
+-(void)clickCancelBtnAction{
+    if (self.cancelBlock) {
+        self.cancelBlock();
+    }
+    [self addHidDialogsAnimation];
 }
 
 //添加动画

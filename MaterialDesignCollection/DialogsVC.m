@@ -31,7 +31,13 @@
     
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _dialogsView = [[MDDialogs alloc] initWithFrame:[UIScreen mainScreen].bounds WithStyle:MDDialogsDefault Title:@"大标题" Body:@"哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈" ConfirmButtonTitle:@"确定" CancelButtonTitle:@"取消" confirmAction:@selector(clickConfirmButton) cancelAction:@selector(clickCancelButton) target:self];
+    _dialogsView = [[MDDialogs alloc] initWithFrame:[UIScreen mainScreen].bounds WithStyle:MDDialogsDefault Title:@"大标题" Body:@"哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈哈" ConfirmButtonTitle:@"确定" CancelButtonTitle:@"取消" confirmAction:^{
+        //do something
+        NSLog(@"确定");
+    } cancelAction:^{
+        //do something
+        NSLog(@"取消");
+    }];
     
     MDButton *btn = [[MDButton alloc] initWithFrame:CGRectMake(SCREEM_WIDTH/2.f - 40, SCREEM_HEIGHT/2.f - 20, 80, 40) WithStyle:FlatButton];
     [btn.button setTitle:@"提示框" forState:UIControlStateNormal];

@@ -13,11 +13,20 @@ typedef enum : NSUInteger {
     MDDialogsSideBySide,//左右平均排
 } MDDialogsStyle;
 
+typedef enum : NSUInteger {
+    LogCancelBtnStyle,
+    LogConfirmBtnStyle,
+} ClickBtnType;
+
+typedef void(^DialogViewCallBackBlock)();
 
 @interface MDDialogs : UIView
 
+@property (nonatomic, copy) DialogViewCallBackBlock cancelBlock;
+@property (nonatomic, copy) DialogViewCallBackBlock confirmBlock;
+
 //title为空则不现实标题的位置
--(instancetype)initWithFrame:(CGRect)frame WithStyle:(MDDialogsStyle)Style Title:(NSString *)title Body:(NSString *)body ConfirmButtonTitle:(NSString *)confirmTitle CancelButtonTitle:(NSString *)cancelTitle confirmAction:(SEL)confirmAction cancelAction:(SEL)cancelAction target:(id)target;
+-(instancetype)initWithFrame:(CGRect)frame WithStyle:(MDDialogsStyle)Style Title:(NSString *)title Body:(NSString *)body ConfirmButtonTitle:(NSString *)confirmTitle CancelButtonTitle:(NSString *)cancelTitle confirmAction:(DialogViewCallBackBlock)confirmAction cancelAction:(DialogViewCallBackBlock)cancelAction;
 
 -(void)showMDDialogs;
 
